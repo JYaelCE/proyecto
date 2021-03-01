@@ -1,1 +1,8 @@
-<?php include_once("https://jyaelce.github.io/proyecto/index.html"); ?>
+<html>
+ <head>
+  <title>PHP Test</title>
+ </head>
+ <body>
+ <?php echo '<p>Hello World</p>'; ?> 
+ </body>
+</html>
