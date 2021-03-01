@@ -3,6 +3,6 @@
   <title>PHP Test</title>
  </head>
  <body>
- <?php echo '<p>Hello World</p>'; ?> 
+<?php include_once 'https://jyaelce.github.io/proyecto/css/estilo.css';?>
  </body>
 </html>
