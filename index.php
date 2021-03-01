@@ -3,6 +3,6 @@
   <title>PHP Test</title>
  </head>
  <body>
-<?php include_once "https://jyaelce.github.io/proyecto/index.html";?>
+<?php include_once "index.html";?>
  </body>
 </html>
