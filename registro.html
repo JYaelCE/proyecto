@@ -4,33 +4,164 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/estilo.css">
-    <title>Inicio</title>
+    <link rel="stylesheet" href="css/registro.css">
+    <title>CV</title>
 </head>
 <body>
-    
+
     <div class="contenedor">
-        <header>
-            <div class="header_p">
-                <a href="index.html"><h1>Proyecto</h1></a>
-            </div><!--Ttitulo-->
-            <nav class="menu">
-                <ul>
-                    <li><a href="registro.html">Registro</a></li>
-                    <li><a href="visualizar.html">Visualizar</a></li>
-                </ul>
-            </nav><!--Menu navegacion-->
-        </header><!--Header-->
-        <section class="contenido"><!--Contenedor de contenido-->
-            <article class="contenido"><!--Contenido-->
-                <main>
-                    <p>Página de inicio sencilla, seleccione alguna opción del menú.</p>
-                </main>
-            </article>
-        </section>
-        <div class="foot"><!--footer-->
-            <p><small>Realizado por Yael Cantero ;)</small></p>
-        </div>
-    </div>
+        <h1>Crea tu CV</h1>
+        <form>
+            
+            <div class="personal">
+                <h3>Informacion personal</h3>
+                <p class="formulario">
+                    <input type="text" id="nombre" required="">
+                    <label>Nombre Completo</label>
+                </p>
+                <p class="formulario-fecha">
+                    <input type="date" id="nacimineto" max="2020-12-31">
+                    <label>Fecha de nacimiento</label>
+                </p>
+                <p class="formulario">
+                    <input type="text" id="correo" required="">
+                    <label>Correo electrónico</label>
+                </p>
+                <p class="formulario">
+                    <input type="text" id="telefono" required="">
+                    <label>Teléfono</label>
+                </p>
+                <p class="formulario">
+                    <input type="text" id="web" required="">
+                    <label>Sitio Web</label>
+                </p>
+                <p class="formulario">
+                    <input type="text" id="puesto" required="">
+                    <label>Puesto</label>
+                </p>
+                <p class="formulario">
+                    <input type="text" id="direccion" required="">
+                    <label>Dirección</label>
+                </p>
+                <div class="formulario-texto">
+                    <textarea id="descripcion" cols="30" rows="3"></textarea>
+                    <label>Descripción</label>
+                </div>
+            </div><!--personal-->
+
+            <div class="experiencia">
+                <h3>Experiencia</h3>
+                <p class="formulario">
+                    <input type="text" id="empresa" required="">
+                    <label>Nombre de la empresa</label>
+                </p>
+                <p class="formulario">
+                    <input type="text" id="puesto_empresa" required="">
+                    <label>Puesto</label>
+                </p>
+                <p class="formulario-fecha">
+                    <input type="number" id="ano-inicioano-inicio-trabajo" min="1900" max="2021" value="2021">
+                    <label>Inicio</label>
+                </p>
+                <p class="formulario-fecha">
+                    <input type="number" id="ano-final-trabajo" min="1900" max="2021" value="2021">
+                    <label>Salida</label>
+                </p>
+                <div class="formulario-texto">
+                    <textarea id="descripcion-puesto" cols="30" rows="3"></textarea>
+                    <label>Descripción</label>
+                </div>
+            </div><!--experiencia-->
+
+            <div class="educacion">
+                <h3>Educacion</h3>
+                <p class="formulario">
+                    <input type="text" id="escuela" required="">
+                    <label>Nombre de la escuela</label>
+                </p>
+                <p class="formulario">
+                    <input type="text" id="carrera" required="">
+                    <label>Carrera</label>
+                </p>
+                <p class="formulario-fecha">
+                    <input type="number" id="ano-inicio-escuela" min="1900" max="2021" value="2021">
+                    <label>Inicio</label>
+                </p>
+                <p class="formulario-fecha">
+                    <input type="number" id="ano-final-escuela" min="1900" max="2021" value="2021">
+                    <label>Salida</label>
+                </p>
+                <div class="formulario-texto">
+                    <textarea id="descripcion-carrera" cols="30" rows="3"></textarea>
+                    <label>Descripción</label>
+                </div>
+            </div><!--Educacion-->
+
+            <div class="software">
+                <h3>Software</h3>
+                <p class="formulario">
+                    <input type="text" id="software" required="">
+                    <label>Software</label>
+                </p>
+                <div class="formulario-radio">
+                    <h4>Nivel de conocimiento</h4>
+                    <div class="radio-lista">
+                        <input type="radio" name="nivel" value="1" id="nivel1"/>
+                        <label for="nivel1">1</label>
+                        <input type="radio" name="nivel" value="2" id="nivel2"/>
+                        <label for="nivel2">2</label>
+                        <input type="radio" name="nivel" value="3" id="nivel3" checked="checked"/>
+                        <label for="nivel3">3</label>
+                        <input type="radio" name="nivel" value="4" id="nivel4"/>
+                        <label for="nivel4">4</label>
+                        <input type="radio" name="nivel" value="5" id="nivel5"/>
+                        <label for="nivel5">5</label>
+                    </div>
+                </div>
+            </div><!--software-->
+
+            <div class="skills">
+                <h3>Habilidades</h3>
+                <p class="formulario">
+                    <input type="text" id="skills" required="">
+                    <label>Habilidades</label>
+                </p>
+                <div class="formulario-radio">
+                    <h4>Nivel de conocimiento</h4>
+                    <div class="radio-lista">
+                        <input type="radio" name="nivel-s" value="1" id="nivel1-s"/>
+                        <label for="nivel1-s">1</label>
+                        <input type="radio" name="nivel-s" value="2" id="nivel2-s"/>
+                        <label for="nivel2-s">2</label>
+                        <input type="radio" name="nivel-s" value="3" id="nivel3-s" checked="checked"/>
+                        <label for="nivel3-s">3</label>
+                        <input type="radio" name="nivel-s" value="4" id="nivel4-s"/>
+                        <label for="nivel4-s">4</label>
+                        <input type="radio" name="nivel-s" value="5" id="nivel5-s"/>
+                        <label for="nivel5-s">5</label>
+                    </div>
+                </div>
+            </div><!--skills-->
+
+            <div class="redes">
+                <h3>Redes sociales</h3>
+                <div>
+                    <p class="formulario">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                        <input type="text" id="facebook" required="">
+                    </p>
+                    <p class="formulario">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                        <input type="text" id="twitter" required="">
+                    </p> 
+                </div>
+            </div><!--redes-->
+
+            <div class="form-boton">
+                <button>Enviar</button>
+            </div>
+
+        </form>
+    </div><!--contenedor-->
 </body>
 </html>
