@@ -10,7 +10,7 @@ obtener_datos.get("/obtener_datos_usuario/:correo", (req, res) => {
     conexion.query(solicitud_usuario, [dato], (err, rows, fields) =>{
         if(err){
             console.log("hubo un error: " + err)
-            res.sendStatus(500)
+            res.redirect('/error')
             return
         }
         res.json(rows)
@@ -25,7 +25,7 @@ obtener_datos.get("/obtener_datos_experiencia/:correo", (req, res) => {
     conexion.query(solicitud_experiencia, [dato], (err, rows, fields) => {
         if (err) {
             console.log("hubo un error: " + err)
-            res.sendStatus(500)
+            res.redirect('/error')
             return
         }
         res.json(rows)
@@ -40,7 +40,7 @@ obtener_datos.get("/obtener_datos_educacion/:correo", (req, res) => {
     conexion.query(solicitud_experiencia, [dato], (err, rows, fields) => {
         if (err) {
             console.log("hubo un error: " + err)
-            res.sendStatus(500)
+            res.redirect('/error')
             return
         }
         res.json(rows)
@@ -55,7 +55,7 @@ obtener_datos.get("/obtener_datos_software/:correo", (req, res) => {
     conexion.query(solicitud_experiencia, [dato], (err, rows, fields) => {
         if (err) {
             console.log("hubo un error: " + err)
-            res.sendStatus(500)
+            res.redirect('/error')
             return
         }
         res.json(rows)
@@ -70,7 +70,7 @@ obtener_datos.get("/obtener_datos_skills/:correo", (req, res) => {
     conexion.query(solicitud_experiencia, [dato], (err, rows, fields) => {
         if (err) {
             console.log("hubo un error: " + err)
-            res.sendStatus(500)
+            res.redirect('/error')
             return
         }
         res.json(rows)
@@ -85,7 +85,7 @@ obtener_datos.get("/obtener_datos_redes/:correo", (req, res) => {
     conexion.query(solicitud_experiencia, [dato], (err, rows, fields) => {
         if (err) {
             console.log("hubo un error: " + err)
-            res.sendStatus(500)
+            res.redirect('/error')
             return
         }
         res.json(rows)
