@@ -1,11 +1,11 @@
 async function Obtenerdatos (correo){
     try {
-        let peticion_personal = await fetch("http://localhost:5329/obtener_datos_usuario/" + correo);
-        let peticion_experiencia = await fetch("http://localhost:5329/obtener_datos_experiencia/" + correo);
-        let peticion_educacion = await fetch("http://localhost:5329/obtener_datos_educacion/" + correo);
-        let peticion_software = await fetch("http://localhost:5329/obtener_datos_software/" + correo);
-        let peticion_skills = await fetch("http://localhost:5329/obtener_datos_skills/" + correo);
-        let peticion_redes = await fetch("http://localhost:5329/obtener_datos_redes/" + correo);
+        let peticion_personal = await fetch("https://ejercicio-club.herokuapp.com/obtener_datos_usuario/" + correo);
+        let peticion_experiencia = await fetch("https://ejercicio-club.herokuapp.com/obtener_datos_experiencia/" + correo);
+        let peticion_educacion = await fetch("https://ejercicio-club.herokuapp.com/obtener_datos_educacion/" + correo);
+        let peticion_software = await fetch("https://ejercicio-club.herokuapp.com/obtener_datos_software/" + correo);
+        let peticion_skills = await fetch("https://ejercicio-club.herokuapp.com/obtener_datos_skills/" + correo);
+        let peticion_redes = await fetch("https://ejercicio-club.herokuapp.com/obtener_datos_redes/" + correo);
         if(peticion_personal.ok){
             let datos_personal = await peticion_personal.json();
             let datos_experiencia = await peticion_experiencia.json();
