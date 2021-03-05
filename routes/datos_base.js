@@ -86,7 +86,6 @@ function guardar_datos(req, res){
             res.redirect('/error')
         }
         else{
-            conexion.end()
             try{
                 conexion.query(solicitud_usuario, [nombre,puesto,descripcion,nacimiento,direccion,telefono,correo,web])
                 conexion.query(solicitud_experiencia, [nombre_empresa,puesto_empresa,ano_inicio_empresa,ano_final_empresa,descripcion_empresa,correo]) 

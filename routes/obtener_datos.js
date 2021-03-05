@@ -14,8 +14,9 @@ obtener_datos.get("/obtener_datos_usuario/:correo", (req, res) => {
             res.redirect('/error')
             return
         }
-        conexion.end()
         res.json(rows)
+        conexion.end()
+
     })    
 })
 
@@ -30,8 +31,8 @@ obtener_datos.get("/obtener_datos_experiencia/:correo", (req, res) => {
             res.redirect('/error')
             return
         }
-        conexion.end()
         res.json(rows)
+        conexion.end()
     })
 })
 
@@ -46,8 +47,9 @@ obtener_datos.get("/obtener_datos_educacion/:correo", (req, res) => {
             res.redirect('/error')
             return
         }
-        conexion.end()
         res.json(rows)
+        conexion.end()
+
     })
 })
 
@@ -62,8 +64,9 @@ obtener_datos.get("/obtener_datos_software/:correo", (req, res) => {
             res.redirect('/error')
             return
         }
-        conexion.end()
         res.json(rows)
+        conexion.end()
+
     })
 })
 
@@ -78,8 +81,9 @@ obtener_datos.get("/obtener_datos_skills/:correo", (req, res) => {
             res.redirect('/error')
             return
         }
-        conexion.end()
         res.json(rows)
+        conexion.end()
+
     })
 })
 
@@ -89,13 +93,12 @@ obtener_datos.get("/obtener_datos_redes/:correo", (req, res) => {
     const solicitud_experiencia = "select link, tipo from redes r where r.correo = ?"
     conexion.query(solicitud_experiencia, [dato], (err, rows, fields) => {
         if (err) {
-            conexion.end()
             console.log("hubo un error: " + err)
+            conexion.end()
             res.redirect('/error')
-            return
         }
-        conexion.end()
         res.json(rows)
+        conexion.end()
     })
 })
 
