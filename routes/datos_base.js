@@ -14,8 +14,8 @@ datos_base.get("/checar_correo/:correo", (req, res) => {
     conexion.query(solicitud_usuario, [correo], (err, rows, fields) =>{
         if(err){
             console.log("hubo un error: " + err)
-            res.sendStatus(500)
-            return
+            conexion.end()
+            res.redirect('/error');
         }
         if (rows && rows.length){
             conexion.end()
@@ -77,8 +77,8 @@ function guardar_datos(req, res){
     conexion.query(checar_correo, [correo], (err, rows, fields) =>{
         if(err){
             console.log("hubo un error: " + err)
-            res.redirect('/error')
-            return
+            conexion.end()
+            res.redirect('/error');
         }
         if (rows && rows.length){
             console.log("ya existe krnal")
@@ -100,8 +100,8 @@ function guardar_datos(req, res){
             }
             catch (err){
                 console.log("hubo un error: " + err)
-                res.redirect('/error')
-                return
+                conexion.end()
+                res.redirect('/error');
             }
         }
     })
