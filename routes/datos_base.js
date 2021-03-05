@@ -96,6 +96,7 @@ function guardar_datos(req, res){
                 conexion.query(solicitud_redes, [twitter, tipo2,correo])
                 console.log("Los datos se guardaron exitosamente")
                 conexion.end()
+                res.redirect('../ok.html')
             }
             catch (err){
                 console.log("hubo un error: " + err)
