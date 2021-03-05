@@ -1,1 +1,1 @@
-werb: node index.js
+werb: node app.js
