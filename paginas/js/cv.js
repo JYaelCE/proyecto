@@ -35,6 +35,7 @@ function insertar_datos(datos_personal, datos_experiencia, datos_educacion, dato
 
 function insertar_datos_personales(datos){
     document.getElementById("nombre").innerHTML = datos[0].nombre;
+    document.getElementById("puesto").innerHTML = datos[0].puesto;
     document.getElementById("descripcion").innerHTML = datos[0].descripcion;
     document.getElementById("nacimiento").innerHTML = datos[0].nacimineto;
     document.getElementById("direccion").innerHTML = datos[0].direccion;
