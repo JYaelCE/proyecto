@@ -1,6 +1,10 @@
 const express = require('express')
 const datos_base = express.Router()
 const mysql = require ('mysql')
+const bodyParser = require('body-parser')
+datos_base.use(bodyParser.urlencoded({extended: false}))
+
+
 
 datos_base.get("/checar_correo/:correo", (req, res) => {
     var correo = req.params.correo
