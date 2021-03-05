@@ -1,0 +1,251 @@
+body{
+    background-color: #828f98;
+}
+
+.contenedor{
+    width: 1000px;
+    height: auto;
+    margin: auto;
+    margin-top: 50px;
+    max-width: 100%;
+    -webkit-box-shadow: -15px -3px 28px -19px #000000; 
+    box-shadow: -15px -3px 28px -19px #000000;
+}
+
+/*Grid*/
+
+.grid{
+    background-color: #1e2126;
+    display: grid;
+    grid-template-areas: "vacio1 personal vacio2" "experiencia personal educacion" "software personal skills";
+    grid-template-columns: 37% 26% 37%;
+}
+
+/*vacios*/
+
+.vacio1{
+    grid-area: vacio1;
+    margin-bottom: 100px;
+}
+
+.vacio2{
+    grid-area: vacio2;
+    margin-bottom: 100px;
+}
+
+/*Seccion personal*/
+
+.personal{
+    grid-area: personal;
+    background-color: #293a4c;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.personal > .nombre{
+    font-size: 40px;
+    margin-bottom: 0px;
+}
+
+.personal > .puesto{
+    margin: 0px;
+}
+
+.personal > .informacion{
+    border-top-style: dotted;
+    border-bottom-style: dotted;
+    border-width: 3px;
+    background-color: #293a4c;
+    color: white;
+    padding: 10px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.personal > .informacion > h4{
+    margin: 0px;
+}
+
+.personal > .informacion > p{
+    margin-top: 0px;
+    color: #527190;
+}
+
+.personal > .redes{
+    background-color: #293a4c;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/*Seccion experiencia*/
+
+.experiencia{
+    grid-area: experiencia;
+    text-align: right;
+    padding: 25px;
+    padding-bottom: 0px;
+}
+
+.experiencia h1{
+    border-top-style: dotted;
+    border-bottom-style: dotted;
+    border-width: 3px;
+    color: white;
+    text-align: center;
+}
+
+.experiencia > .empresa{
+    color: #617188;
+    margin: 0px;
+}
+
+.experiencia > .puesto{
+    color: white;
+    margin: 0px;
+
+}
+.experiencia > .fecha{
+    color: #50535a;
+    margin: 0px;
+}
+
+.experiencia > .descripcion{
+    color: white;
+}
+
+/*Seccion educacion*/
+
+.educacion{
+    grid-area: educacion;
+    text-align: left;
+    padding: 25px;
+    padding-bottom: 0px;
+}
+
+.educacion h1{
+    border-top-style: dotted;
+    border-bottom-style: dotted;
+    border-width: 3px;
+    color: white;
+    text-align: center;
+}
+
+.educacion > .escuela{
+    color: #617188;
+    margin: 0px;
+}
+
+.educacion > .carrera{
+    color: white;
+    margin: 0px;
+
+}
+.educacion > .fecha{
+    color: #50535a;
+    margin: 0px;
+}
+
+.educacion > .descripcion{
+    color: white;
+}
+
+/*Seccion software*/
+
+.software{
+    grid-area: software;
+    text-align: left;
+    padding: 25px;
+}
+
+.software h1{
+    border-top-style: dotted;
+    border-bottom-style: dotted;
+    border-width: 3px;
+    margin-top: 0px;
+    color: white;
+    text-align: center;
+}
+
+.software .nombre{
+    color: white;
+    width: 185px;
+    margin: 0px;
+    float: left;
+}
+
+.software .puntos{
+    margin-bottom: 10px;
+}
+
+.software .puntos .lleno{
+    height: 10px;
+    width: 10px;
+    background-color: #366290;
+    border: 3px solid #366290;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 3px;
+    margin-bottom: 10px;
+}
+
+.software .puntos .vacio{
+    height: 10px;
+    width: 10px;
+    border: 3px solid #366290;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 3px;
+    margin-bottom: 10px;
+}
+
+/*Seccion skills*/
+
+.skills{
+    grid-area: skills;
+    text-align: left;
+    padding: 25px;
+}
+
+.skills h1{
+    border-top-style: dotted;
+    border-bottom-style: dotted;
+    border-width: 3px;
+    margin-top: 0px;
+    color: white;
+    text-align: center;
+}
+
+.skills .nombre{
+    color: white;
+    width: 165px;
+    margin: 0px;
+    margin-left: 21px;
+    float: right;
+}
+
+.skills .puntos{
+    margin-bottom: 10px;
+}
+
+.skills .puntos .lleno{
+    height: 10px;
+    width: 10px;
+    background-color: #366290;
+    border: 3px solid #366290;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 3px;
+    margin-bottom: 10px;
+}
+
+.skills .puntos .vacio{
+    height: 10px;
+    width: 10px;
+    border: 3px solid #366290;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 3px;
+    margin-bottom: 10px;
+}
