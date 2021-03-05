@@ -41,7 +41,7 @@ function guardar_datos(req, res){
     var telefono = req.body.telefono
     var web = req.body.web
     var puesto = req.body.puesto
-    var direccion = req.body.descripcion
+    var direccion = req.body.direccion
     var descripcion = req.body.descripcion
     //tabla experiencia
     const solicitud_experiencia = "insert into experiencia (nombre_empresa, puesto_e, ano_inicio_e, ano_final_e, descripcion_e, correo) values (?, ?, ?, ?, ?, ?)"
