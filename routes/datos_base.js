@@ -23,7 +23,7 @@ datos_base.get("/checar_correo/:correo", (req, res) => {
         }
         else{
             conexion.end()
-            res.redirect('../registro.html');
+            res.redirect('/error');
         }
     })    
 })
@@ -72,25 +72,39 @@ function guardar_datos(req, res){
     var tipo = "facebook"
     var tipo2 = "Twitter"
     //conexion mysql
-    const connexion = conectar()
-    try{
-        connexion.query(solicitud_usuario, [nombre,puesto,descripcion,nacimiento,direccion,telefono,correo,web])
-        connexion.query(solicitud_experiencia, [nombre_empresa,puesto_empresa,ano_inicio_empresa,ano_final_empresa,descripcion_empresa,correo]) 
-        connexion.query(solicitud_educacion, [nombre_escuela,carrera_escuela,ano_inicio_escuela,ano_final_escuela,descripcion_carrera,correo]) 
-        connexion.query(solicitud_software, [software, nivel,correo]) 
-        connexion.query(solicitud_skills, [skill, nivel_s,correo]) 
-        connexion.query(solicitud_redes, [facebook, tipo,correo])
-        connexion.query(solicitud_redes, [twitter, tipo2,correo])
-    }
-    catch (err){
-        console.log("hubo un error: " + err)
-        res.sendStatus(500)
-        return
-    }
-    finally{
-        console.log("Los datos se guardaron exitosamente")
-        connexion.end()
-    }
+    const conexion = conectar()
+    const checar_correo = "select * from usuario u where u.correo = ?"
+    conexion.query(checar_correo, [correo], (err, rows, fields) =>{
+        if(err){
+            console.log("hubo un error: " + err)
+            res.redirect('/error')
+            return
+        }
+        if (rows && rows.length){
+            console.log("ya existe krnal")
+            conexion.end()
+            res.redirect('/error')
+        }
+        else{
+            conexion.end()
+            try{
+                conexion.query(solicitud_usuario, [nombre,puesto,descripcion,nacimiento,direccion,telefono,correo,web])
+                conexion.query(solicitud_experiencia, [nombre_empresa,puesto_empresa,ano_inicio_empresa,ano_final_empresa,descripcion_empresa,correo]) 
+                conexion.query(solicitud_educacion, [nombre_escuela,carrera_escuela,ano_inicio_escuela,ano_final_escuela,descripcion_carrera,correo]) 
+                conexion.query(solicitud_software, [software, nivel,correo]) 
+                conexion.query(solicitud_skills, [skill, nivel_s,correo]) 
+                conexion.query(solicitud_redes, [facebook, tipo,correo])
+                conexion.query(solicitud_redes, [twitter, tipo2,correo])
+                console.log("Los datos se guardaron exitosamente")
+                conexion.end()
+            }
+            catch (err){
+                console.log("hubo un error: " + err)
+                res.redirect('/error')
+                return
+            }
+        }
+    })
 }
 
 function conectar(){

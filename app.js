@@ -19,6 +19,10 @@ app.post("/cv", (req, res) => {
     res.redirect('/checar_correo/' + req.body.correo_visualizar);
 })
 
+app.get("/error", (req, res) => {
+    res.redirect('mensajes.html');
+})
+
 const PORT = process.env.PORT || 5329
 app.listen(PORT, () => {
     console.log("esta corriendo")
