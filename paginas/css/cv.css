@@ -287,6 +287,7 @@ body{
 
 .skills .puntos .puntos_l div {
     margin-right: 50px;
+    display: inline-flex;
     max-width: 144px;
 }
 
