@@ -46,4 +46,5 @@ button:hover {
 
 img{
     margin-bottom: 20px;
+    max-width: -webkit-fill-available;
 }
