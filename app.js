@@ -28,3 +28,7 @@ app.listen(PORT, () => {
     console.log("esta corriendo")
 })
 
+app.get('*', function(req, res){
+    res.redirect('mensajes.html');
+});
+  
