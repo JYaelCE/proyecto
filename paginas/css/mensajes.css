@@ -22,8 +22,8 @@ body {
 
 .contenedor h1{
     color: white;
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    overflow-wrap: break-word;
 }
 
 .contenedor p{
@@ -37,6 +37,8 @@ button{
     border-radius: 4px;
     font-size: 16px;
     padding: 10px;
+    max-width: -webkit-fill-available;
+    overflow-wrap: break-word;
 }
 
 button:hover {
