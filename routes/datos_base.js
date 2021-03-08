@@ -7,11 +7,8 @@ datos_base.use(bodyParser.urlencoded({extended: false}))
 
 
 datos_base.get("/checar_correo/:correo", (req, res) => {
-    var correo = req.params.correo
-    console.log(correo)
     const conexion = conectar()
-    const solicitud_usuario = "select * from usuario u where u.correo = ?"
-    conexion.query(solicitud_usuario, [correo], (err, rows, fields) =>{
+    conexion.query("select * from usuario u where u.correo = ?", [req.params.correo], (err, rows, fields) =>{
         if(err){
             console.log("hubo un error: " + err)
             conexion.end()
@@ -19,7 +16,7 @@ datos_base.get("/checar_correo/:correo", (req, res) => {
         }
         if (rows && rows.length){
             conexion.end()
-            res.redirect('../cv.html?correo=' + correo);
+            res.redirect('../cv.html?correo=' + req.params.correo);
         }
         else{
             conexion.end()
@@ -33,48 +30,8 @@ datos_base.post("/registrar", (req, res) => {
 })
 
 function guardar_datos(req, res){
-    //tabla usuario
-    const solicitud_usuario = "insert into usuario (nombre, puesto, descripcion, nacimiento, direccion, telefono, correo, website) values (?, ?, ?, ?, ?, ?, ?, ?)"
-    var nombre = req.body.nombre
-    var nacimiento = req.body.nacimiento
-    var correo = req.body.correo
-    var telefono = req.body.telefono
-    var web = req.body.web
-    var puesto = req.body.puesto
-    var direccion = req.body.direccion
-    var descripcion = req.body.descripcion
-    //tabla experiencia
-    const solicitud_experiencia = "insert into experiencia (nombre_empresa, puesto_e, ano_inicio_e, ano_final_e, descripcion_e, correo) values (?, ?, ?, ?, ?, ?)"
-    var nombre_empresa = req.body.empresa
-    var puesto_empresa = req.body.puesto_empresa
-    var ano_inicio_empresa = req.body.ano_inicio_trabajo
-    var ano_final_empresa = req.body.ano_final_trabajo
-    var descripcion_empresa = req.body.descripcion_puesto
-    //tabla escuela
-    const solicitud_educacion = "insert into educacion (nombre_escuela, carrera, ano_inicio_c, ano_final_c, descripcion_c, correo) values (?, ?, ?, ?, ?, ?)"
-    var nombre_escuela = req.body.escuela
-    var carrera_escuela = req.body.carrera
-    var ano_inicio_escuela = req.body.ano_inicio_escuela
-    var ano_final_escuela = req.body.ano_final_escuela
-    var descripcion_carrera = req.body.descripcion_carrera
-    //tabla software
-    const solicitud_software = "insert into software (software, nivel_s, correo) values (?, ?, ?)"
-    var software = req.body.software
-    var nivel = parseInt(req.body.nivel,10)
-    //tabla skills
-    const solicitud_skills = "insert into skills (skill, nivel_h, correo) values (?, ?, ?)"
-    var skill = req.body.skills
-    var nivel_s = parseInt(req.body.nivel_s,10)
-    //tabla redes
-    const solicitud_redes = "insert into redes (link, tipo, correo) values (?, ?, ?)"
-    var facebook = req.body.facebook
-    var twitter = req.body.twitter
-    var tipo = "facebook"
-    var tipo2 = "Twitter"
-    //conexion mysql
     const conexion = conectar()
-    const checar_correo = "select * from usuario u where u.correo = ?"
-    conexion.query(checar_correo, [correo], (err, rows, fields) =>{
+    conexion.query("select * from usuario u where u.correo = ?", [req.body.correo], (err, rows, fields) =>{
         if(err){
             console.log("hubo un error: " + err)
             conexion.end()
@@ -87,13 +44,13 @@ function guardar_datos(req, res){
         }
         else{
             try{
-                conexion.query(solicitud_usuario, [nombre,puesto,descripcion,nacimiento,direccion,telefono,correo,web])
-                conexion.query(solicitud_experiencia, [nombre_empresa,puesto_empresa,ano_inicio_empresa,ano_final_empresa,descripcion_empresa,correo]) 
-                conexion.query(solicitud_educacion, [nombre_escuela,carrera_escuela,ano_inicio_escuela,ano_final_escuela,descripcion_carrera,correo]) 
-                conexion.query(solicitud_software, [software, nivel,correo]) 
-                conexion.query(solicitud_skills, [skill, nivel_s,correo]) 
-                conexion.query(solicitud_redes, [facebook, tipo,correo])
-                conexion.query(solicitud_redes, [twitter, tipo2,correo])
+                conexion.query("insert into usuario (nombre, puesto, descripcion, nacimiento, direccion, telefono, correo, website) values (?, ?, ?, ?, ?, ?, ?, ?)", [req.body.nombre,req.body.puesto,req.body.descripcion,req.body.nacimiento,req.body.direccion,req.body.telefono,req.body.correo,req.body.web])
+                conexion.query("insert into experiencia (nombre_empresa, puesto_e, ano_inicio_e, ano_final_e, descripcion_e, correo) values (?, ?, ?, ?, ?, ?)", [req.body.empresa,req.body.puesto_empresa,req.body.ano_inicio_trabajo,req.body.ano_final_trabajo,req.body.descripcion_puesto,req.body.correo])
+                conexion.query("insert into educacion (nombre_escuela, carrera, ano_inicio_c, ano_final_c, descripcion_c, correo) values (?, ?, ?, ?, ?, ?)", [req.body.escuela,req.body.carrera,req.body.ano_inicio_escuela,req.body.ano_final_escuela,req.body.descripcion_carrera ,req.body.correo]) 
+                conexion.query("insert into software (software, nivel_s, correo) values (?, ?, ?)", [req.body.software, parseInt(req.body.nivel,10),req.body.correo])
+                conexion.query("insert into skills (skill, nivel_h, correo) values (?, ?, ?)", [req.body.skills, parseInt(req.body.nivel_s,10) ,req.body.correo])
+                conexion.query("insert into redes (link, tipo, correo) values (?, ?, ?)", [req.body.facebook, "facebook",req.body.correo])
+                conexion.query("insert into redes (link, tipo, correo) values (?, ?, ?)", [req.body.twitter, "Twitter" ,req.body.correo])
                 console.log("Los datos se guardaron exitosamente")
                 conexion.end()
                 res.redirect('../ok.html')
